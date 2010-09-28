@@ -1,0 +1,6 @@
+!!! XML
+%xfdf{ :xmlns => 'http://ns.adobe.com/xfdf/', 'xml:space' => 'preserve' }
+  %fields
+    - for field in @fields
+      %field{ :name => field.name }
+        %value= field.value
