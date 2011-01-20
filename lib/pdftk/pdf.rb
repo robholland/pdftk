@@ -19,7 +19,7 @@ module Pdftk
     def export(output_pdf_path, options = {})
       xfdf_path = Tempfile.new('pdftk-xfdf').path
       File.open(xfdf_path, 'w'){|f| f << xfdf }
-      system %{pdftk "#{path}" #{'flatten' if options[:flatten]} fill_form "#{xfdf_path}" output "#{output_pdf_path}"}
+      system %{pdftk "#{path}" fill_form "#{xfdf_path}" output "#{output_pdf_path}" #{'flatten' if options[:flatten]}}
     end
 
     def xfdf
