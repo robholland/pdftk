@@ -30,6 +30,10 @@ module Pdftk
         Haml::Engine.new(File.read(haml_view_path)).render(self)
       end
     end
+    
+    def field(name)
+      fields.find { |field| field.name == name }
+    end
 
     def fields
       unless @_all_fields
