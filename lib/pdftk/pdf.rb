@@ -37,7 +37,7 @@ module Pdftk
 
     def fields
       unless @_all_fields
-        field_output = `pdftk "#{path}" dump_data_fields_utf8`
+        field_output = `pdftk "#{path}" dump_data_fields`
         raw_fields   = field_output.split(/^---\n/).reject {|text| text.empty? }
         @_all_fields = raw_fields.map do |field_text|
           attributes = {}
